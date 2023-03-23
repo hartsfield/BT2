@@ -9,6 +9,7 @@ var nowPlaying = {
 // track                                                                                                                
 var track                                                                                                               
 function pp(trackID, trackPath) {                                                                                       
+console.log(trackID, trackPath)
         if (nowPlaying.ID != trackID && trackID != undefined) {                                                         
                 if (nowPlaying.ID != undefined) {                                                                       
                         track.pause();                                                                                  
@@ -30,11 +31,11 @@ function pp(trackID, trackPath) {
                 track.play();                                                                                           
                 nowPlaying.ID = trackID;                                                                                
                 document.getElementById("ppButt_" + trackID).style.backgroundImage = "url(public/assets/pause.png)";                            
-                document.getElementById("ppImg_global").style.backgroundImage = "url('public/assets/pause.png')";       
+                document.getElementById("ppImg_global").style.backgroundImage = "url(public/assets/pause.png)";       
         } else {                                                                                                        
                 track.pause();                                                                                          
                 document.getElementById("ppButt_" + trackID).style.backgroundImage = "url(public/assets/play.png)";                      
-                document.getElementById("ppImg_global").style.backgroundImage = "url('public/assets/play.png')"; 
+                document.getElementById("ppImg_global").style.backgroundImage = "url(public/assets/play.png)"; 
         }                                                                                                               
 }                                                                                                                       
 
@@ -108,9 +109,10 @@ function getStream(category, tID) {
                                 listDiv.innerHTML = res.template;
                                 updateTrackList();
                                 if (category == 'TRACK') {
-                                        window.history.pushState({}, "page", "/track/" + tID);
+                                        window.history.pushState({}, "page", "/" + tID);
+                                        window.scrollTo(0, 0);
                                 } else {
-                                        window.history.pushState({}, "page", "/#/" + category);
+                                        window.history.pushState({}, "page", "/" + category);
                                         window.scrollTo(0, 0);
                                 }
                                 // listDiv.insertAdjacentHTML("beforeend", res.template);

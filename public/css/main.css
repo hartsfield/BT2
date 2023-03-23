@@ -418,7 +418,8 @@ li {
         position: absolute;
         height: 2.4em;
         width: 100%;
-        z-index: 3333;
+        z-index: 333;
+        background-color: #fffffff5;
 }
 
 .controlButt {
@@ -434,7 +435,7 @@ li {
 
 .globalNextButt {
         background-image: url(../assets/ff.svg);
-        /* background-color: white; */
+        background-color: #fffffff5;
         background-size: 1.6em;
         /* background-position-y: -4px; */
 }
@@ -442,7 +443,7 @@ li {
 .globalPPButt {
         background-image: url(../assets/images/play.png);
         z-index: 323;
-        /* background-color: #94af08; */
+        background-color: #fffffff5;
         background-size: 1.3em;
 }
 
@@ -464,6 +465,7 @@ li {
         background-image: url(../assets/heart_black.svg);
         width: 4em;
         background-size: 1.7em;
+        background-color: #fffffff5;
 }
 
 
@@ -520,6 +522,7 @@ li {
         top: 0;
         width: 0;
         border-bottom: 10px solid #8f0b0b;
+        z-index: 334;
 }
 
 /* .innerSeeker:after { */
