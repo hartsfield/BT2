@@ -1,0 +1,19 @@
+{{define "topbar"}}
+  <div class="topbar">
+    <div class="tb-item hamburger" onclick="expandSidebar()">
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    <div class="tb-item pageName">{{.PageName}}</div>
+    {{ if .UserData.IsLoggedIn }}
+      <div class="tb-item authButt_" id="authButt_" onclick="auth('logout')">[<div class="redAuth">Logout</div>]</div>
+    {{ else }}
+      <div class="tb-item authButt_" id="authButt_" onclick="showAuth()">[<div class="redAuth">Auth</div>]</div>
+    {{end}}
+    <div class="tb-item closeAuth authButt_" id="closeAuth" onclick="hideAuth()">[<div class="redAuth">X</div>]</div>
+    {{ template "auth" . }}
+  </div>
+{{end}}

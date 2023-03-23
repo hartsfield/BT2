@@ -1,0 +1,548 @@
+* {
+        font-family: sans;
+        margin: 0;
+        padding: 0;
+}
+
+body {
+        color: #7a7a7a;
+}
+
+li {
+        list-style-type: none;
+}
+
+.companyName {
+        display: inline-block;
+        top: 0;
+        position: absolute;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+        cursor: pointer;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #c4c4c4;
+}
+
+#errorField {
+        color: red;
+        font-size: 0.7em;
+}
+
+.streamName {
+    padding-top: 4em;
+    padding-left: 1em;
+}
+
+.authButt {
+        display: inline;
+        margin-right: 1em;
+}
+.tb-item {
+        display: inline;
+        vertical-align: middle;
+}
+.auth {
+        margin-bottom: 1em;
+}
+
+.hiddenAuth {
+        display: none;
+        float: right;
+        margin-right: 1em;
+}
+
+.authButt_ {
+        margin-right: 1em;
+        color: black;
+        float: right;
+        font-weight: 100;
+        margin-top: 0.5em;
+        cursor: pointer;
+}
+
+.redAuth {
+        color: #b35454;
+        display: inline;
+}
+
+.closeAuth {
+        display: none;
+}
+
+.postImg {
+  cursor: pointer;
+}
+
+.postImg > img {
+    max-width: -webkit-fill-available;
+    border-top-right-radius: 0.3em;
+    border-top-left-radius: 0.3em;
+}
+
+.postInfo {
+       padding: 1em; 
+       display: flex;
+       justify-content: space-between;
+}
+
+#loginKey_true {
+        background-image: url(../assets/signout.svg);
+        height: 2.4em;
+        width: 2.4em;
+        background-repeat: no-repeat;
+        background-origin: content-box;
+        background-position: center;
+        cursor: pointer;
+        position: fixed;
+        z-index: 500;
+}
+
+#loginKey_false {
+        background-image: url(../assets/key2.svg);
+        height: 2.4em;
+        width: 2.4em;
+        background-repeat: no-repeat;
+        background-origin: content-box;
+        background-position: center;
+        cursor: pointer;
+        position: fixed;
+        z-index: 500;
+}
+
+.sidebar {
+        position: fixed;
+        width: 10em;
+        height: 100%;
+        border-right: 1px solid #dedede;
+        background-color: white;
+        z-index: 200;
+}
+
+.updateDiv {
+        padding-bottom: 4em;
+}
+
+.stream {
+        margin-left: 10em;
+}
+
+.stream > ul {
+        padding: 1em;
+        padding-top: 4em;
+}
+
+.post {
+        border: 1px solid #aaaaaa;
+        margin-bottom: 1em;
+        border-radius: 0.3em;
+        /* padding: 0.5em; */
+        /* padding-left: 0.8em; */
+        /* padding-right: 0.8em; */
+        font-size: 1em;
+        background-color: white;
+}
+
+.foot {
+    margin-left: 11em;
+    margin-top: 1.5em;
+    background: #c34646;
+    color: white;
+    font-weight: bold;
+    padding: 0.5em;
+    border-top-left-radius: 0.3em;
+    border-bottom-left-radius: 0.3em;
+}
+
+.navul {
+        margin-top: 4em;
+}
+
+.likeButt {
+        height: 3em;
+        width: 3em;
+        background-repeat: no-repeat;
+        background-origin: content-box;
+        background-position: center;
+        background-size: cover;
+}
+
+.liked_true {
+        background-image: url(../assets/heart_red.svg);
+}
+
+.liked_false {
+        background-image: url(../assets/heart_black.svg);
+}
+
+.infoDiv {
+        flex:1;
+        padding-left: 1em;
+        font-size: 0.9em;
+}
+
+.ppButt {
+        height: 3em;
+        width: 3em;
+        background-repeat: no-repeat;
+        background-origin: content-box;
+        background-position: center;
+        background-image: url(../assets/play.png);
+        background-size: cover;
+}
+
+/* .ppImg { */
+/*         padding: 1.4em; */
+/* } */
+
+.navli {
+        text-align: center;
+        margin-bottom: 0.5em;
+        cursor: pointer;
+}
+
+.pageName {
+        /* font-weight: bold; */
+        /* border-bottom: 1px solid #bfbfbf; */
+        /* padding-bottom: 0.5em; */
+        /* width: 100%; */
+        /* background: white; */
+        /* border-left: 1px solid #d1d1d1; */
+        /* padding-top: 0.5em; */
+        /* font-size: 1.2em; */ 
+}
+
+.hamburger {
+        display: none;
+}
+
+.bgBlur {
+        display: none;
+        z-index: 150;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        -webkit-filter: blur(5px);
+        -moz-filter: blur(5px);
+        -o-filter: blur(5px);
+        -ms-filter: blur(5px);
+        filter: blur(5px);
+        background-color: #d5d5d59e;
+}
+
+.topbar {
+        font-size: 1.2em; 
+        font-weight: bold;
+        background: white;
+        position: fixed;
+        width: 100%;
+        border-bottom: 1px solid #bfbfbf;
+        /* background: #dadada; */
+}
+
+
+
+@media screen and (orientation:portrait) {
+        body {
+                min-width: 100%;
+        }
+
+        .sidebar {
+                display: none;
+        }
+
+        .stream {
+                margin-left: 0;
+        }
+
+        .pageName {
+                padding-left: 3em;
+        }
+
+        .hamburger {
+                display: inline-block;
+                z-index: 100;
+                padding-left: 1em;
+                padding-top: 0.58em;
+                cursor: pointer;
+
+                background: #b35454;
+                border-right: 1px solid #d9d9d9;
+                padding-right: 1em;
+                height: 2.3em;
+        }
+
+        .hamburger > ul > li {
+                height: 0.4em;
+                width: 0.4em;
+                margin-bottom: 0.2em;
+                border-radius: 1em;
+        }
+
+        .hamburger > ul > li {
+                /* background-color: #7a7a7a; */
+                background-color: white;
+        }
+        .post {
+                font-size: 1.5vh;
+        }
+
+        .pageName {
+                /* font-size: 2vh; */
+        }
+
+        .authButt_ {
+                margin-top: 0.9em;
+        }
+
+}
+
+@media screen and (orientation:landscape) {
+        body {
+                width: 40%;
+                width: 40%;
+                min-width: 700px;
+                border-right: 1px solid #dedede;
+        }
+        .pageName {
+                padding-left: 11em;
+        }
+        .topbar {
+                font-size: unset;
+                padding-top: 0.5em;
+                padding-bottom: 0.5em;
+        }
+        .authButt_ {
+                margin-top: unset;
+        }
+}
+
+/* global player */
+                                              
+
+.globalPlayer, .seekerBox {
+        -moz-animation-name: dropHeader;
+        -moz-animation-iteration-count: 1;
+        -moz-animation-timing-function: ease-out;
+        -moz-animation-duration: 0.6s;
+
+        -webkit-animation-name: dropHeader;
+        -webkit-animation-iteration-count: 1;
+        -webkit-animation-timing-function: ease-out;
+        -webkit-animation-duration: 0.6s;
+        -webkit-backface-visibility: hidden;
+
+        animation-name: dropHeader;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-out;
+        animation-duration: 0.6s;
+}
+
+@-moz-keyframes dropHeader {
+        0%   { -moz-transform: translateY(-80px); }
+        100% { -moz-transform: translateY(0); }
+}
+
+@-webkit-keyframes dropHeader {
+        0%   { -webkit-transform: translateY(-80px); }
+        100% { -webkit-transform: translateY(0); }
+}
+
+@keyframes dropHeader {
+        0%   { transform: translateY(-80px); }
+        100% { transform: translateY(0); }
+}
+
+
+
+.globalPlayer {
+        align-content: stretch;
+        align-items: center;
+        /* background: #ea1717; */
+        background: #e8e8e099;
+        /* border-bottom: 1px solid #df0101; */
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        /* padding: 0.6em; */
+        position: fixed;
+        /* width: 100%; */
+        color: #796016;
+        z-index: 11;
+        border-bottom: 1px solid #d5d5d5;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.ppImgGlobal {
+        /* float: right; */
+        height: 1.5em;
+        /* margin-right: 0.8em; */
+}
+
+.globalPPButt, .globalNextButt {
+        position: relative;
+        border-right: none;
+        width: 100px;
+}
+/* .globalPPButt:after, .globalNextButt:after { */
+/*         content: ""; */
+/*         position: absolute; */
+/*         top: 6px; */
+/*         right: -13px; */
+/*         width: 25px; */
+/*         height: 25px; */
+/*         border: 1px solid #94af08; */
+/*         border-left: none; */
+/*         border-bottom: none; */
+/*         -webkit-transform: rotate(45deg); */
+/*         -moz-transform: rotate(45deg); */
+/*         transform: rotate(45deg); */
+/*         background-color: #94af08; */
+/*         z-index: -4; */
+/* } */
+/* .globalPPButt:after { */
+/*         z-index: 12121; */
+/*         background-color: #94af08; */
+/* } */
+
+
+/* .globalNextButt:after { */
+/*         background-color: white; */
+/*         border: 1px solid white; */
+/* } */
+
+.controls {
+        display: none;
+        position: absolute;
+        height: 2.4em;
+        width: 100%;
+        z-index: 3333;
+}
+
+.controlButt {
+        background-repeat: no-repeat;
+        background-origin: content-box;
+        background-position: center;
+
+
+        display: inline-flex;
+        height: 2.4em;
+        width: 3.5em;
+}
+
+.globalNextButt {
+        background-image: url(../assets/ff.svg);
+        /* background-color: white; */
+        background-size: 1.6em;
+        /* background-position-y: -4px; */
+}
+
+.globalPPButt {
+        background-image: url(../assets/images/play.png);
+        z-index: 323;
+        /* background-color: #94af08; */
+        background-size: 1.3em;
+}
+
+/* .listTitle { */
+/*         /1* background-color: #c50a85; *1/ */
+/*         background-color: #972a72; */
+/*         border-radius: 0.5em; */
+/*         color: #ffd2fb; */
+/*         /1* font-family: 'Modak', cursive; *1/ */
+/*         font-size: 2em; */
+/*         padding-left: 0.8em; */
+/*         padding-top: 0.3em; */
+/*         padding-bottom: 0.18em; */
+/*         box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px; */
+/*         border: 1px solid #7e004f; */
+/* } */
+
+.globalLikeButt {
+        background-image: url(../assets/heart_black.svg);
+        width: 4em;
+        background-size: 1.7em;
+}
+
+
+/* .globalLikeButt:before { */
+/*         content: ""; */
+/*         position: absolute; */
+/*         top: 6px; */
+/*         right: -13px; */
+/*         width: 1.6em; */
+/*         height: 1.6em; */
+/*         border: 1px solid #a73939; */
+/*         border-left: none; */
+/*         border-bottom: none; */
+/*         -webkit-transform: rotate(-45deg); */
+/*         -moz-transform: rotate(-45deg); */
+/*         transform: rotate(-45deg); */
+/*         background-color: #a73939; */
+/*         z-index: -4; */
+/*         margin-right: 4.5em; */
+/*         margin-top: -0.05em; */
+/* } */
+
+
+.globalTrackInfo {
+        margin-left: 11em;
+        /* font-family: 'Modak', cursive; */
+        font-size: 1.2em;
+        color: black;
+        height: 1.7em;
+        padding-top: 0.3em;
+        z-index: 9555;
+        position: absolute;
+        width: 100%;
+        top: 0.1em;
+}
+
+.outerSeeker {
+        /* background: #000; */
+        /* background: #df010170; */
+        /* height: 0.5em; */
+        /* margin-top: 4em; */
+        /* position: absolute; */
+        /* width: 100%; */
+        background: #fffffff5;
+        height: 2.4em;
+        /* border: 2px dashed black */
+        /* z-index: 98; */
+
+}
+
+.innerSeeker {
+        height: 2em;
+        position: relative;
+        top: 0;
+        width: 0;
+        border-bottom: 10px solid #8f0b0b;
+}
+
+/* .innerSeeker:after { */
+/*         content: ""; */
+/*         position: absolute; */
+/*         top: 6px; */
+/*         right: -13px; */
+/*         width: 25px; */
+/*         height: 25px; */
+/*         border: 1px solid #88c5c8; */
+/*         border-left: none; */
+/*         border-bottom: none; */
+/*         -webkit-transform: rotate(45deg); */
+/*         -moz-transform: rotate(45deg); */
+/*         transform: rotate(45deg); */
+/*         background-color: #88c5c8; */
+/* } */
+.seekerBox {                                              
+        position: fixed;                                  
+        z-index: 1000;
+        /* background-color: green; */                    
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        border-bottom: 1px solid #c6c6c6;                 
+        bottom: 0;
+        width: 100%;
+}           

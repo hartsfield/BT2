@@ -1,0 +1,19 @@
+{{ define "sidebar" }}
+<div class="sidebar" id="sidebar">                                                                   
+    <!-- <div class="loginShow" id="loginKey_{{.UserData.IsLoggedIn}}" onclick="showAuth({{.UserData.IsLoggedIn}})"></div> -->                                                      
+    <div class="companyName" onclick="window.location.href = window.location.origin">{{.Company}}</div>
+
+    <ul class="navul">
+        <li class="navli" onClick="getStream('LATEST')">LATEST</li>
+        <li class="navli" onClick="getStream('HOT')">HOT</li>                                                                                
+        {{ if .UserData.IsLoggedIn }}
+        <li class="navli userLikes_{{.UserData.IsLoggedIn}}" onclick="getStream({{.UserData.Name}})">
+            ♡ ♡ ♡
+        </li>
+        {{ else }}
+      {{ end }}
+    </ul>
+</div>
+
+<div class="bgBlur" id="bgBlur" onclick="hideSidebar()"></div>
+{{ end }}

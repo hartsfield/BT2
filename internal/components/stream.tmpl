@@ -1,0 +1,19 @@
+{{define "stream"}}
+<div class="stream" id="stream">
+  <!-- <div class="streamName" id="pageName">{{.PageName}}</div> -->
+  <ul>
+    {{ range $key, $post := .Stream}}
+    <li class="post" id="{{$post.ID}}" data-artist="{{$post.Artist}}" data-title="{{$post.Title}}">
+      <div class="postImg" onclick="getStream('TRACK', {{$post.ID}})">
+        <img src="{{$post.Image}}" />
+      </div>
+      <div class="postInfo">
+        <div class="ppButt" id="ppButt_{{ $post.ID }}" onclick="pp({{ $post.ID }}, {{$post.Path}})"></div>
+        <div class="infoDiv">{{$post.Artist}} - {{$post.Title}}</div>
+        <div class="likeButt liked_{{$post.Liked}}" id="heart_{{$post.ID}}" onClick="like('{{$post.ID}}', '{{$.UserData.IsLoggedIn}}')"></div>
+      </div>
+    </li>
+    {{ end }}
+  </ul>
+</div>
+{{end}}

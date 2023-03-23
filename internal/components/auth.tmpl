@@ -1,0 +1,33 @@
+{{ define "auth" }}
+    <div class="tb-item hiddenAuth" id="hiddenAuth">
+        <div class="auth">
+            <form class="loginForm" encType="multipart/form-data">
+                <input class="usernameInput"
+                       pattern="[a-zA-Z0-9\-]{4,15}"
+                       required
+                       title="4-15 characters and one dash '-'"
+                       id="username"
+                       autocapitalize="none"
+                       placeholder="username">
+                </input>
+                <input class="passwordInput"
+                       pattern=".{4,15}"
+                       required
+                       title="4-15 characters"
+                       id="password"
+                       type="password"
+                       placeholder="password">
+                </input>
+                <div id="errorField"></div> 
+                <div>
+                    <div class="authButt loginButt" onClick="auth('signin')">
+                        Login
+                    </div>
+                    <div class="authButt signupButt" onClick="auth('signup')">
+                        Signup
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{{ end  }}

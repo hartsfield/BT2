@@ -1,0 +1,18 @@
+{{define "globalPlayer"}}                                                                                               
+        <div class="seekerBox" id="seekerBox">                                                                          
+                <audio id="audioID_global"> </audio>                                                                    
+                                                                                                                        
+                <div class="controls" id="controls">                                                                    
+                        <div class="globalPPButt controlButt" id="ppImg_global" onclick="pp()"></div>                   
+                        <div class="globalNextButt controlButt" id="globalNextButt" onclick="nextTrack(trackID)"></div> 
+                        <div class="globalLikeButt controlButt" id="globalLikeButt" onclick="likeTrack(trackID)"></div> 
+                </div>                                                                                                  
+                                                                                
+                <div class="outerSeeker" id="outerSeeker">                      
+                        <div class="innerSeeker" id="innerSeeker"></div>                                                
+                </div>                                                                                                  
+                                                                                                                        
+                <div class="globalTrackInfo" id="globalTrackInfo" onclick="seek(event)"></div>                   
+        </div>                                                                  
+{{end}}                                                                                                                 
+

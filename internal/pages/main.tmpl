@@ -1,0 +1,15 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+        {{template "head"}}                                    
+        <body>
+           <div class="updateDiv" id="updateDiv">
+                {{template "sidebar" .}}
+                {{template "topbar" .}}
+                <!-- {{template "auth" }} -->
+                {{template "stream" .}}
+                {{template "footer" .}}
+           </div>
+                {{template "globalPlayer" . }}
+        </body>
+</html>
+
