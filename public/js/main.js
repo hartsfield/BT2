@@ -9,7 +9,6 @@ var nowPlaying = {
 // track                                                                                                                
 var track                                                                                                               
 function pp(trackID, trackPath) {                                                                                       
-console.log(trackID, trackPath)
         if (nowPlaying.ID != trackID && trackID != undefined) {                                                         
                 if (nowPlaying.ID != undefined) {                                                                       
                         track.pause();                                                                                  
@@ -30,12 +29,12 @@ console.log(trackID, trackPath)
         if (track.paused) {                                                                                             
                 track.play();                                                                                           
                 nowPlaying.ID = trackID;                                                                                
-                document.getElementById("ppButt_" + trackID).style.backgroundImage = "url(public/assets/pause.png)";                            
-                document.getElementById("ppImg_global").style.backgroundImage = "url(public/assets/pause.png)";       
+                document.getElementById("ppImg_global").style.backgroundImage = "url(/public/assets/pause.png)";       
+                document.getElementById("ppButt_" + trackID).style.backgroundImage = "url(/public/assets/pause.png)";                            
         } else {                                                                                                        
                 track.pause();                                                                                          
-                document.getElementById("ppButt_" + trackID).style.backgroundImage = "url(public/assets/play.png)";                      
-                document.getElementById("ppImg_global").style.backgroundImage = "url(public/assets/play.png)"; 
+                document.getElementById("ppImg_global").style.backgroundImage = "url(/public/assets/play.png)"; 
+                document.getElementById("ppButt_" + trackID).style.backgroundImage = "url(/public/assets/play.png)";                      
         }                                                                                                               
 }                                                                                                                       
 
@@ -83,7 +82,7 @@ function updateTrackList() {
         for (var i = 0, len = audios.length; i < len; i++) {                                                              
                 var pp = document.getElementById("ppButt_" + audios[i].id);                                                
                 if (track.paused == true || audios[i].id != nowPlaying.ID) {                                              
-                        pp.style.backgroundImage = "url(public/assets/play.png)";                                                         
+                        pp.style.backgroundImage = "url(/public/assets/play.png)";                                                         
                 } else {                                                                                                  
                         nowPlaying.isPlaying = true;                                                                      
                         nowPlaying.artist = audios[i].dataset.artist;                                                     
@@ -91,7 +90,7 @@ function updateTrackList() {
                         document.getElementById("globalTrackInfo").innerHTML = nowPlaying.artist 
                           + " - " + nowPlaying.title;                                    
                         // pp.src = "public/assets/pause.png";                                                        
-                        pp.style.backgroundImage = "url(public/assets/pause.png)";                            
+                        pp.style.backgroundImage = "url(/public/assets/pause.png)";                            
                 }                                                                                                         
         }                                                                                                                 
 }                                                                                                                         
@@ -109,10 +108,10 @@ function getStream(category, tID) {
                                 listDiv.innerHTML = res.template;
                                 updateTrackList();
                                 if (category == 'TRACK') {
-                                        window.history.pushState({}, "page", "/" + tID);
+                                        window.history.pushState({}, "page", "/track/" + tID);
                                         window.scrollTo(0, 0);
                                 } else {
-                                        window.history.pushState({}, "page", "/" + category);
+                                        window.history.pushState({}, "page", "/#/" + category);
                                         window.scrollTo(0, 0);
                                 }
                                 // listDiv.insertAdjacentHTML("beforeend", res.template);
