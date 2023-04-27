@@ -56,6 +56,7 @@ function tt() {
         document.getElementById('innerSeeker').style.width = (Math.floor(track.currentTime) /
                 Math.floor(track.duration)) * 100 + "%";
         // document.getElementById("spinny").style.transform = "rotate("+Math.floor(track.currentTime)*5+"deg)";
+        loopScroll(document.getElementById("globalTrackInfo"), Math.floor(track.currentTime));
 }
 
 // seek() gets the mouses x-cooridinate when it clicks the outerSeeker div and                                 
@@ -78,11 +79,12 @@ function seek(e) {
 document.addEventListener('play', function(e) {                                                                           
                 document.getElementById("controls").style.display = "unset";                                              
                 if (nowPlaying.hasPlayed == false) {                                                                      
-                        var c1 = document.getElementById("ppImg_global").offsetWidth;                                     
-                        var c2 = document.getElementById("globalNextButt").offsetWidth;                                   
-                        var c3 = document.getElementById("globalLikeButt").offsetWidth;                                   
+                        // var c1 = document.getElementById("ppImg_global").offsetWidth;                                     
+                        // var c2 = document.getElementById("globalNextButt").offsetWidth;                                   
+                        // var c3 = document.getElementById("globalLikeButt").offsetWidth;                                   
                         // document.getElementById("outerSeeker").style.width = (window.innerWidth - (sb+c1+c2+c3)) + "px";  
-                        document.getElementById("outerSeeker").style.marginLeft= (c1+c2+c3) + "px";                          
+                        var c1 = document.getElementById("controls").offsetWidth;
+                        document.getElementById("outerSeeker").style.marginLeft= c1 + "px";                          
                         nowPlaying.hasPlayed = true;                                                                      
                 }                                                                                                         
                 updateTrackList();                                                                                        
@@ -200,4 +202,14 @@ function nextTrack() {
 
 function globalLike(isLoggedIn) {
    like(nowPlaying.ID, isLoggedIn, nowPlaying.key);
+}
+
+function loopScroll(elm, i) {
+// if (i%5 == 0) {
+//   elm.style.right = "0";
+// }
+// const interval = setInterval(function() {
+//  }, 5000);
+
+// clearInterval(interval);
 }

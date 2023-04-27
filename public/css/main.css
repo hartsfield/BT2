@@ -296,6 +296,43 @@ li {
                 margin-top: 0.9em;
         }
 
+.globalTrackInfo {
+  /* animation properties */
+  /* -moz-transform: translateX(50%); */
+  /* -webkit-transform: translateX(50%); */
+  /* transform: translateX(100%); */
+
+  /* -moz-animation: my-animation 10s linear infinite; */
+  /* -webkit-animation: my-animation 10s linear infinite; */
+  animation: my-animation 10s linear infinite;
+}
+
+/* /1* for Firefox *1/ */
+/* @-moz-keyframes my-animation { */
+/*   from { -moz-transform: translateX(100%); } */
+/*   to { -moz-transform: translateX(-100%); } */
+/* } */
+
+/* /1* for Chrome *1/ */
+/* @-webkit-keyframes my-animation { */
+/*   from { -webkit-transform: translateX(50%); } */
+/*   to { -webkit-transform: translateX(-50%); } */
+/* } */
+
+@keyframes my-animation {
+  from {
+    /* -moz-transform: translateX(50%); */
+    /* -webkit-transform: translateX(50%); */
+    transform: translateX(0em);
+  }
+  to {
+    /* -moz-transform: translateX(-50%); */
+    /* -webkit-transform: translateX(-50%); */
+    transform: translateX(-10em);
+  }
+}
+
+
 }
 
 @media screen and (orientation:landscape) {
@@ -418,7 +455,7 @@ li {
         display: none;
         position: absolute;
         height: 2.4em;
-        width: 100%;
+        width: fit-content;
         z-index: 66666;
         background-color: #fffffff5;
 }
@@ -491,7 +528,8 @@ li {
 
 
 .globalTrackInfo {
-        margin-left: 11em;
+        /* margin-left: 11em; */
+        /* margin-left: 100%; */
         /* font-family: 'Modak', cursive; */
         font-size: 1.2em;
         color: black;
@@ -499,8 +537,9 @@ li {
         padding-top: 0.3em;
         z-index: 9555;
         position: absolute;
-        width: 100%;
+        /* width: 100%; */
         top: 0.1em;
+        right: 0;
 }
 
 .outerSeeker {
