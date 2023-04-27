@@ -1,14 +1,27 @@
+var tracklist = [];
 var nowPlaying = {                                                                                                      
         "isPlaying": false,                                                                                             
         "hasPlayed": false,                                                                                             
         "ID": undefined,                                                                                                
-        "path": undefined                                                                                               
+        "path": undefined,
+        "key": undefined,
 };                                                                                                                      
                                                                                                                         
 // Pause/play (pp()): Changes the pause/play icon to reflect the state of the                                           
 // track                                                                                                                
 var track                                                                                                               
-function pp(trackID, trackPath) {                                                                                       
+function pp(trackID, trackPath, key) { 
+        if (key != undefined) {
+                nowPlaying.key = key;
+        }
+console.log(tracklist[key])
+        if (tracklist[key].liked) {
+                glb = document.getElementById("globalLikeButt");
+                glb.style.backgroundImage = "url(/public/assets/heart_red.svg)";
+        } else {
+                glb = document.getElementById("globalLikeButt");
+                glb.style.backgroundImage = "url(/public/assets/heart_black.svg)";
+        }
         if (nowPlaying.ID != trackID && trackID != undefined) {                                                         
                 if (nowPlaying.ID != undefined) {                                                                       
                         track.pause();                                                                                  
@@ -104,6 +117,7 @@ function getStream(category, tID) {
                 if (xhr.status === 200) {
                         var res = JSON.parse(xhr.responseText);
                         if (res.success == "true") {
+                                tracklist = JSON.parse(res.tracklist);
                                 var listDiv = document.getElementById("updateDiv");
                                 listDiv.innerHTML = res.template;
                                 updateTrackList();
@@ -135,7 +149,7 @@ function getStream(category, tID) {
         // s.style.marginLeft = mL;
 }
 
-function like(trackID, isLoggedIn) {
+function like(trackID, isLoggedIn, key) {
         // if (isLoggedIn == "false") {
         //         showAuth();
         // } else {
@@ -151,8 +165,19 @@ function like(trackID, isLoggedIn) {
                                         document.getElementById("errorField").innerHTML = res.error;
                                 } else if (res.isLiked == "true") {
                                         document.getElementById("heart_" + trackID).style.backgroundImage = "url(/public/assets/heart_red.svg)";
+                                        tracklist[key].liked = true;
+                                        if (nowPlaying.ID == trackID) {
+                                                glb = document.getElementById("globalLikeButt");
+                                                glb.style.backgroundImage = "url(/public/assets/heart_red.svg)";
+                                        }
+
                                 } else if (res.isLiked == "false") {
                                         document.getElementById("heart_" + trackID).style.backgroundImage = "url(/public/assets/heart_black.svg)";
+                                        tracklist[key].liked = false;
+                                        if (nowPlaying.ID == trackID) {
+                                                glb = document.getElementById("globalLikeButt");
+                                                glb.style.backgroundImage = "url(/public/assets/heart_black.svg)";
+                                        }
                                 } else {
                                         // handle error
                                         console.log("error");
@@ -167,4 +192,13 @@ function like(trackID, isLoggedIn) {
                 }));
 
         // }
+}
+
+function nextTrack() {
+  nt = tracklist[nowPlaying.key + 1];
+  pp(nt.ID, nt.path, nowPlaying.key + 1);
+}
+
+function globalLike(isLoggedIn) {
+   like(nowPlaying.ID, isLoggedIn);
 }

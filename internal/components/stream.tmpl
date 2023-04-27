@@ -1,4 +1,8 @@
 {{define "stream"}}
+  <script>
+    tracklist = {{.Stream}} 
+  </script>
+
 <div class="stream" id="stream">
   <!-- <div class="streamName" id="pageName">{{.PageName}}</div> -->
   <ul>
@@ -8,9 +12,9 @@
         <img src="{{$post.Image}}" />
       </div>
       <div class="postInfo">
-        <div class="ppButt" id="ppButt_{{ $post.ID }}" onclick="pp({{ $post.ID }}, {{$post.Path}})"></div>
+        <div class="ppButt" id="ppButt_{{ $post.ID }}" onclick="pp({{ $post.ID }}, {{$post.Path}}, {{ $key }})"></div>
         <div class="infoDiv">{{$post.Artist}} - {{$post.Title}}</div>
-        <div class="likeButt liked_{{$post.Liked}}" id="heart_{{$post.ID}}" onClick="like('{{$post.ID}}', '{{$.UserData.IsLoggedIn}}')"></div>
+        <div class="likeButt liked_{{$post.Liked}}" id="heart_{{$post.ID}}" onClick="like('{{$post.ID}}', '{{$.UserData.IsLoggedIn}}', '{{$key}}')"></div>
       </div>
     </li>
     {{ end }}

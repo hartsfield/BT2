@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
@@ -11,7 +12,7 @@ import (
 func latestView(w http.ResponseWriter, r *http.Request) {
 	var page pageData
 	stream := getFresh()
-	// page.Stream = setLikes(r, ts)
+	page.Stream = setLikes(r, stream)
 	page.Company = websiteName
 	page.Stream = stream
 	page.UserData = &credentials{}
@@ -99,10 +100,15 @@ func getStream(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println(err)
 	}
+	j, err := json.Marshal(page.Stream)
+	if err != nil {
+		fmt.Printf("Error: %s", err.Error())
+	}
 	ajaxResponse(w, map[string]string{
-		"success":  "true",
-		"error":    "false",
-		"template": b.String(),
+		"success":   "true",
+		"error":     "false",
+		"tracklist": string(j),
+		"template":  b.String(),
 	})
 }
 

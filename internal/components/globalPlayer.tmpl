@@ -4,8 +4,8 @@
                                                                                                                         
                 <div class="controls" id="controls">                                                                    
                         <div class="globalPPButt controlButt" id="ppImg_global" onclick="pp()"></div>                   
-                        <div class="globalNextButt controlButt" id="globalNextButt" onclick="nextTrack(trackID)"></div> 
-                        <div class="globalLikeButt controlButt" id="globalLikeButt" onclick="likeTrack(trackID)"></div> 
+                        <div class="globalNextButt controlButt" id="globalNextButt" onclick="nextTrack()"></div> 
+                        <div class="globalLikeButt controlButt" id="globalLikeButt" onclick="globalLike({{.UserData.IsLoggedIn}})"></div> 
                 </div>                                                                                                  
                                                                                 
                 <div class="outerSeeker" id="outerSeeker">                      

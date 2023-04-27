@@ -202,24 +202,23 @@ func downloadLink(link string, row []interface{}, srv *sheets.Service) {
 	err = c.Run()
 	if err != nil {
 		log.Println("Something went wrong starting or running youtube-dl. Are you sure it's installed and that it's in your $PATH?: ", err)
-		spreadsheetId := "1xEuxgdRLZTTIDoH54lLNKWHv-QXVbQcnDYVly6bTWxY"
-		writeRange := "Sheet1!K2"
-		rb := &sheets.ValueRange{
-			// TODO: Add desired fields of the request body. All existing fields
-			// will be replaced.
-		}
-		resp, err := srv.Spreadsheets.Values.Update(spreadsheetId, writeRange, rb).Do()
-		if err != nil {
-			log.Fatal(err)
-		}
-		log.Println(resp)
+		// spreadsheetId := "1xEuxgdRLZTTIDoH54lLNKWHv-QXVbQcnDYVly6bTWxY"
+		// writeRange := "Sheet1!K2"
+		// rb := &sheets.ValueRange{
+		// 	// TODO: Add desired fields of the request body. All existing fields
+		// 	// will be replaced.
+		// }
+		// resp, err := srv.Spreadsheets.Values.Update(spreadsheetId, writeRange, rb).Do()
+		// if err != nil {
+		// 	log.Fatal(err)
+		// }
+		// log.Println(resp)
 	}
 	log.Println("Downloaded", link)
 }
 
 func checkExists(file string) bool {
 	if _, err := os.Stat("../public/assets/track_data/" + file + ".jpg"); errors.Is(err, os.ErrNotExist) {
-		log.Println(file, "does not exist")
 		return false
 	}
 	return true
