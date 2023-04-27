@@ -13,14 +13,13 @@ var track
 function pp(trackID, trackPath, key) { 
         if (key != undefined) {
                 nowPlaying.key = key;
-        }
-console.log(tracklist[key])
-        if (tracklist[key].liked) {
-                glb = document.getElementById("globalLikeButt");
-                glb.style.backgroundImage = "url(/public/assets/heart_red.svg)";
-        } else {
-                glb = document.getElementById("globalLikeButt");
-                glb.style.backgroundImage = "url(/public/assets/heart_black.svg)";
+                if (tracklist[key].liked) {
+                        glb = document.getElementById("globalLikeButt");
+                        glb.style.backgroundImage = "url(/public/assets/heart_red.svg)";
+                } else {
+                        glb = document.getElementById("globalLikeButt");
+                        glb.style.backgroundImage = "url(/public/assets/heart_black.svg)";
+                }
         }
         if (nowPlaying.ID != trackID && trackID != undefined) {                                                         
                 if (nowPlaying.ID != undefined) {                                                                       
