@@ -111,7 +111,7 @@ func main() {
 	// Server configuration
 	srv := &http.Server{
 		// in production only use SSL
-		Addr:              ":8666",
+		Addr:              ":6666",
 		Handler:           mux,
 		ReadHeaderTimeout: 5 * time.Second,
 		WriteTimeout:      10 * time.Second,
