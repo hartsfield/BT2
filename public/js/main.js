@@ -199,5 +199,5 @@ function nextTrack() {
 }
 
 function globalLike(isLoggedIn) {
-   like(nowPlaying.ID, isLoggedIn);
+   like(nowPlaying.ID, isLoggedIn, nowPlaying.key);
 }
