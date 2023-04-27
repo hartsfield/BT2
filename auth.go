@@ -97,7 +97,15 @@ func signup(w http.ResponseWriter, r *http.Request) {
 
 	// Make sure the username is longer than 3 characters and shorter than
 	// 25, and the password is longer than 7.
-	if match && (len(c.Name) < 25) && (len(c.Name) > 3) && (len(c.Password) > 7) {
+	if match && (len(c.Name) < 25) && (len(c.Name) > 3) {
+		if len(c.Password) < 7 {
+			ajaxResponse(w, map[string]string{
+				"success": "false",
+				"error":   "Invalid Password",
+			})
+			return
+		}
+
 		// Check if user already exists
 		_, err = rdb.Get(rdbctx, c.Name).Result()
 		if err != nil {
