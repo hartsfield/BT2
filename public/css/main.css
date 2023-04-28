@@ -388,6 +388,7 @@ img {
         }
 
 .globalTrackInfo {
+        user-select: none; /* Standard syntax */
   /* animation properties */
   /* -moz-transform: translateX(50%); */
   /* -webkit-transform: translateX(50%); */
