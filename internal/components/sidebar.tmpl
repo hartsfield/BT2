@@ -1,7 +1,10 @@
 {{ define "sidebar" }}
 <div class="sidebar" id="sidebar">                                                                   
     <!-- <div class="loginShow" id="loginKey_{{.UserData.IsLoggedIn}}" onclick="showAuth({{.UserData.IsLoggedIn}})"></div> -->                                                      
-    <div class="companyName" onclick="getStream('LATEST')">{{.Company}}<div id="spinny" class="spinny"></div></div>
+    <div class="companyName" onclick="getStream('LATEST')">
+        <div class="companyNameInner">{{.Company}}</div>
+        <div id="spinny" class="spinny"></div>
+    </div>
 
     <ul class="navul">
         <li class="navli" onclick="getStream('LATEST')">LATEST</li>
