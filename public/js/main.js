@@ -64,7 +64,7 @@ function seek(e) {
         var sizer = document.getElementById("outerSeeker");                                                    
         var playButt = document.getElementById("ppImg_global");                                                
         var seekTo = ((track.duration / 100) * ((e.clientX - sizer.offsetLeft - (window.innerWidth - sizer.offsetLeft - sizer.offsetWidth)) / sizer.offsetWidth) * 100);
-        track.currentTime = seekTo;                                                                            
+        track.currentTime = seekTo + 4;                                                                            
 }
 
 // function trackLink(id) {
