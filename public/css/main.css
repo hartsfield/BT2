@@ -130,7 +130,8 @@ li {
 
 .stream > ul {
         padding: 1em;
-        padding-top: 4em;
+        padding-top: 4.5em;
+        display: block;
 }
 
 .post {

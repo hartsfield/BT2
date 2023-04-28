@@ -96,10 +96,11 @@ func main() {
 	// multiplexer
 	mux := http.NewServeMux()
 	mux.Handle("/", checkAuth(http.HandlerFunc(latestView)))
-	mux.Handle("/latest", checkAuth(http.HandlerFunc(latestView)))
+	mux.Handle("/LATEST", checkAuth(http.HandlerFunc(latestView)))
 	mux.Handle("/track/", checkAuth(http.HandlerFunc(trackView)))
-	mux.Handle("/hot", checkAuth(http.HandlerFunc(hotView)))
+	mux.Handle("/HOT", checkAuth(http.HandlerFunc(hotView)))
 	mux.Handle("/♥/", checkAuth(http.HandlerFunc(likesView)))
+	mux.Handle("/likes/", checkAuth(http.HandlerFunc(likesView)))
 	mux.Handle("/api/like", checkAuth(http.HandlerFunc(likePost)))
 	mux.Handle("/api/getStream", checkAuth(http.HandlerFunc(getStream)))
 	mux.Handle("/api/newPost", checkAuth(http.HandlerFunc(newPost)))

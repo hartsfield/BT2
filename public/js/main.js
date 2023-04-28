@@ -56,7 +56,6 @@ function tt() {
         document.getElementById('innerSeeker').style.width = (Math.floor(track.currentTime) /
                 Math.floor(track.duration)) * 100 + "%";
         // document.getElementById("spinny").style.transform = "rotate("+Math.floor(track.currentTime)*5+"deg)";
-        loopScroll(document.getElementById("globalTrackInfo"), Math.floor(track.currentTime));
 }
 
 // seek() gets the mouses x-cooridinate when it clicks the outerSeeker div and                                 
@@ -125,8 +124,11 @@ function getStream(category, tID) {
                                 if (category == 'TRACK') {
                                         window.history.pushState({}, "page", "/track/" + tID);
                                         window.scrollTo(0, 0);
+                                } else if (category == "HOT" || category == "LATEST"){
+                                        window.history.pushState({}, "page", "/" + category);
+                                        window.scrollTo(0, 0);
                                 } else {
-                                        window.history.pushState({}, "page", "/#/" + category);
+                                        window.history.pushState({}, "page", "/♥/" + category);
                                         window.scrollTo(0, 0);
                                 }
                                 // listDiv.insertAdjacentHTML("beforeend", res.template);
@@ -202,14 +204,4 @@ function nextTrack() {
 
 function globalLike(isLoggedIn) {
    like(nowPlaying.ID, isLoggedIn, nowPlaying.key);
-}
-
-function loopScroll(elm, i) {
-// if (i%5 == 0) {
-//   elm.style.right = "0";
-// }
-// const interval = setInterval(function() {
-//  }, 5000);
-
-// clearInterval(interval);
 }

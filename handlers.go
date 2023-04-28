@@ -83,6 +83,7 @@ func getStream(w http.ResponseWriter, r *http.Request) {
 		stream = append(stream, t)
 		page.PageName = ""
 	} else {
+		// get users likes
 		stream = getLikes(r, page.Category)
 		page.PageName = page.Category + "'s Liked Posts"
 	}
