@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
 * {
-        font-family: sans;
+        /* font-family: sans; */
+        font-family: 'Mulish', sans-serif;
         margin: 0;
         padding: 0;
 }
@@ -10,6 +12,23 @@ body {
 
 li {
         list-style-type: none;
+}
+
+.albumName {
+        display: inline;
+        font-size: 0.9em;
+            color: #679a9f;
+
+}
+
+.origin {
+  display: inline;
+  font-size: 0.9em;
+        color: #c78240;
+}
+
+.artistTitle {
+        display: block;
 }
 
 .companyName {
@@ -155,6 +174,63 @@ li {
     border-top-left-radius: 0.3em;
     border-bottom-left-radius: 0.3em;
 }
+
+@keyframes fadeInOutAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+body {
+  opacity: 1;
+  animation: fadeInOutAnimation 1.5s 1;
+  animation-timing-function: linear;
+}
+
+
+img {
+    -webkit-animation-name: img; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 1s; /* Chrome, Safari, Opera */
+    animation-name: img;
+    animation-duration: 1s;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes img {
+  0%   {
+       /*transform: translate(3em,10em); /* Standard syntax */
+         -ms-transform: scale(0.4,0.4); /* IE 9 */
+         -webkit-transform: scale(0.4,0.4); /* Safari */
+         transform: scale(0.4,0.4); /* Standard syntax */
+
+       }
+  100% {
+         -ms-transform: scale(1,1); /* IE 9 */
+         -webkit-transform: scale(1,1); /* Safari */
+         transform: scale(1,1); /* Standard syntax */
+       }
+}
+
+/* Standard syntax */
+@keyframes img {
+  0%   {
+       /*transform: translate(3em,10em); /* Standard syntax */
+         -ms-transform: scale(0.4,0.4); /* IE 9 */
+         -webkit-transform: scale(0.4,0.4); /* Safari */
+         transform: scale(0.4,0.4); /* Standard syntax */
+
+       }
+  100% {
+         -ms-transform: scale(1,1); /* IE 9 */
+         -webkit-transform: scale(1,1); /* Safari */
+         transform: scale(1,1); /* Standard syntax */
+       }
+}
+
+
 
 .navul {
         margin-top: 4em;
