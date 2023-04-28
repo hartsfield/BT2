@@ -8,11 +8,11 @@
                         <div class="globalLikeButt controlButt" id="globalLikeButt" onclick="globalLike({{.UserData.IsLoggedIn}})"></div> 
                 </div>                                                                                                  
                                                                                 
-                <div class="outerSeeker" id="outerSeeker">                      
+                <div class="outerSeeker" id="outerSeeker" onclick="seek(event)">                      
                         <div class="innerSeeker" id="innerSeeker"></div>                                                
                 </div>                                                                                                  
                                                                                                                         
-                <div class="globalTrackInfo" id="globalTrackInfo" onclick="seek(event)"></div>                   
+                <div class="globalTrackInfo" id="globalTrackInfo"></div>                   
         </div>                                                                  
 {{end}}                                                                                                                 
 
