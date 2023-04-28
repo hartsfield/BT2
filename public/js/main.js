@@ -55,7 +55,7 @@ function pp(trackID, trackPath, key) {
 function tt() {
         document.getElementById('innerSeeker').style.width = (Math.floor(track.currentTime) /
                 Math.floor(track.duration)) * 100 + "%";
-        // document.getElementById("spinny").style.transform = "rotate("+Math.floor(track.currentTime)*5+"deg)";
+        document.getElementById("spinny").style.transform = "rotate("+Math.floor(track.currentTime)*5+"deg)";
 }
 
 // seek() gets the mouses x-cooridinate when it clicks the outerSeeker div and                                 
