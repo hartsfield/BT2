@@ -645,11 +645,13 @@ img {
 
 
 .globalTrackInfo {
+        
+    color: #9f7033;
+    font-weight: bold;
         /* margin-left: 11em; */
         /* margin-left: 100%; */
         /* font-family: 'Modak', cursive; */
         font-size: 1.2em;
-        color: black;
         height: 1.7em;
         padding-top: 0.3em;
         z-index: 9555;
