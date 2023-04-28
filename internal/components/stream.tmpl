@@ -15,7 +15,7 @@
         <div class="ppButt" id="ppButt_{{ $post.ID }}" onclick="pp({{ $post.ID }}, {{$post.Path}}, {{ $key }})"></div>
         <div class="infoDiv">
           <div class="artistTitle">{{$post.Artist}} - {{$post.Title}}</div>
-          [<div class="albumName">{{$post.Album}} ({{$post.Year}})</div>]  (<div class="origin">{{$post.Origin}}</div>)
+          <div class="albumName">{{$post.Album}} ({{$post.Year}})</div>  <div class="origin">{{$post.Origin}}</div>
         </div>
         <div class="likeButt liked_{{$post.Liked}}" id="heart_{{$post.ID}}" onClick="like('{{$post.ID}}', '{{$.UserData.IsLoggedIn}}', '{{$key}}')"></div>
       </div>

@@ -19,16 +19,28 @@ li {
         font-size: 0.9em;
             color: #679a9f;
 
+    background: #f0fffa;
+    border-radius: 1em;
+    padding: 0.2em;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
 }
 
 .origin {
   display: inline;
   font-size: 0.9em;
         color: #c78240;
+        border-radius: 1em;
+    padding: 0.2em;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+    background: #ffedd1;
 }
 
 .artistTitle {
         display: block;
+        padding-left: 0.6em;
+        padding-bottom: 0.3em;
 }
 
 .companyName {
@@ -255,7 +267,7 @@ img {
 
 .infoDiv {
         flex:1;
-        padding-left: 1em;
+        padding-left: 0.4em;
         font-size: 0.9em;
 }
 
