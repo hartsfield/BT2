@@ -271,6 +271,8 @@ img {
         flex:1;
         padding-left: 0.4em;
         font-size: 0.9em;
+        border-left: 1px solid #e9b32d;
+    margin-left: 1em;
 }
 
 .ppButt {
