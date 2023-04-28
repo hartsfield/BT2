@@ -354,6 +354,9 @@ li {
         .authButt_ {
                 margin-top: unset;
         }
+        .globalTrackInfo {
+                left: 10em;
+        }
 }
 
 /* global player */
