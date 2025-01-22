@@ -7,7 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"io"
-	"io/ioutil"
+	"io/fs"
 	"log"
 	"math/rand"
 	"net/http"
@@ -95,7 +95,10 @@ func saveToken(path string, token *oauth2.Token) {
 		log.Fatalf("Unable to cache oauth token: %v", err)
 	}
 	defer f.Close()
-	json.NewEncoder(f).Encode(token)
+	err = json.NewEncoder(f).Encode(token)
+	if err != nil {
+		log.Println(err)
+	}
 }
 
 func main() {
@@ -296,7 +299,7 @@ var (
 	rdb     = redis.NewClient(&redis.Options{
 		Addr:     redisIP + ":6379",
 		Password: "",
-		DB:       0,
+		DB:       5,
 	})
 
 	// this context is used for the client/server connection. It's useful
@@ -314,30 +317,30 @@ func makeZmem(st string) *redis.Z {
 
 // makeTrack takes a directory entry and uses the information to return a track
 // object
-// func makeTrack(file fs.DirEntry) *track {
-// 	fn := strings.Split(file.Name(), "-")[1]
-// 	fn = fn[:strings.LastIndex(fn, ".")]
-// 	return addImage(&track{
-// 		Artist: strings.Split(file.Name(), "-")[0],
-// 		Title:  fn,
-// 		Path:   file.Name(),
-// 		ID:     genPostID(5),
-// 	})
-// }
+func makeTrack(file fs.DirEntry) *track {
+	fn := strings.Split(file.Name(), "-")[1]
+	fn = fn[:strings.LastIndex(fn, ".")]
+	return addImage(&track{
+		Artist: strings.Split(file.Name(), "-")[0],
+		Title:  fn,
+		Path:   file.Name(),
+		ID:     genPostID(5),
+	})
+}
 
 // addImage adds an image to a track object by analyzing the first 6 characters
 // of the image file name and audio file name and checking for a match. For this
 // to work, audio and images must be added to the appropriate directory with
 // intent
-// func addImage(t *track) *track {
-// 	images, _ := os.ReadDir("../public/assets/images")
-// 	for _, image := range images {
-// 		if strings.ToLower(image.Name())[0:6] == strings.ToLower(t.Artist[0:6]) {
-// 			t.Image = image.Name()
-// 		}
-// 	}
-// 	return t
-// }
+func addImage(t *track) *track {
+	images, _ := os.ReadDir("../public/assets/images")
+	for _, image := range images {
+		if strings.ToLower(image.Name())[0:6] == strings.ToLower(t.Artist[0:6]) {
+			t.Image = image.Name()
+		}
+	}
+	return t
+}
 
 // genPostID generates a post ID
 func genPostID(length int) (ID string) {
@@ -380,7 +383,10 @@ func addToRedis(vals [][]interface{}) {
 
 			pipe.ZAdd(rdbctx, "STREAM:CHRON", zm)
 			pipe.ZAdd(rdbctx, "STREAM:HOT", zm)
-			pipe.Exec(rdbctx)
+			_, err = pipe.Exec(rdbctx)
+			if err != nil {
+				log.Println(err)
+			}
 		}
 	}
 	fmt.Println("test")
@@ -410,10 +416,10 @@ func getMarkup(link string) ([]*html.Node, []string) {
 		}
 	}()
 
-	buf, _ := ioutil.ReadAll(r.Body)
+	buf, _ := io.ReadAll(r.Body)
 	// use nopCloser to get an io.readCloser which implements the io.Reader
 	// interface used for html.Parse().
-	rw1 := ioutil.NopCloser(bytes.NewBuffer(buf))
+	rw1 := io.NopCloser(bytes.NewBuffer(buf))
 	n, err := html.Parse(rw1)
 	if err != nil {
 		fmt.Println(err)

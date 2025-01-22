@@ -13,32 +13,31 @@ import (
 )
 
 type post struct {
-	Artist       string `redis:"Artist" json:"artist"`
-	Album        string `redis:"Album" json:"album"`
-	Year         string `redis:"Year" json:"year"`
-	Permission   string `redis:"Permission" json:"permission"`
-	Featuring    string `redis:"Featuring" json:"featuring"`
-	Remix        string `redis:"Remix" json:"remix"`
-	Instrumental string `redis:"Instrumental" json:"instrumental"`
-	Origin       string `redis:"Origin" json:"origin"`
-	Publish      string `redis:"Publish" json:"publish"`
-	Path         string `redis:"Path" json:"path"`
-
-	Title    string        `redis:"Title" json:"title"`
-	Body     template.HTML `redis:"Body" json:"body"`
-	Image    string        `redis:"Image" json:"image"`
-	Audio    string        `redis:"Audio" json:"audioMedia"`
-	Video    string        `redis:"Video" json:"videoMedia"`
-	ID       string        `redis:"ID" json:"ID"`
-	Author   string        `redis:"Author" json:"author"`
-	Parent   string        `redis:"Parent" json:"parent"`
-	TS       string        `redis:"TS" json:"timestamp"`
-	Tags     []string      `redis:"Tags" json:"tags"`
-	Testing  string        `redis:"Testing" json:"testing"`
-	Children []*post       `redis:"Children" json:"children"`
-	Likes    int           `redis:"Likes" json:"likes"`
-	Liked    bool          `redis:"Liked" json:"liked"`
-	LikedBy  []string      `redis:"LikedBy" json:"likedBy"`
+	Artist       string        `redis:"Artist" json:"artist"`
+	Album        string        `redis:"Album" json:"album"`
+	Year         string        `redis:"Year" json:"year"`
+	Permission   string        `redis:"Permission" json:"permission"`
+	Featuring    string        `redis:"Featuring" json:"featuring"`
+	Remix        string        `redis:"Remix" json:"remix"`
+	Instrumental string        `redis:"Instrumental" json:"instrumental"`
+	Origin       string        `redis:"Origin" json:"origin"`
+	Publish      string        `redis:"Publish" json:"publish"`
+	Path         string        `redis:"Path" json:"path"`
+	Title        string        `redis:"Title" json:"title"`
+	Body         template.HTML `redis:"Body" json:"body"`
+	Image        string        `redis:"Image" json:"image"`
+	Audio        string        `redis:"Audio" json:"audioMedia"`
+	Video        string        `redis:"Video" json:"videoMedia"`
+	ID           string        `redis:"ID" json:"ID"`
+	Author       string        `redis:"Author" json:"author"`
+	Parent       string        `redis:"Parent" json:"parent"`
+	TS           string        `redis:"TS" json:"timestamp"`
+	Tags         []string      `redis:"Tags" json:"tags"`
+	Testing      string        `redis:"Testing" json:"testing"`
+	Children     []*post       `redis:"Children" json:"children"`
+	Likes        int           `redis:"Likes" json:"likes"`
+	Liked        bool          `redis:"Liked" json:"liked"`
+	LikedBy      []string      `redis:"LikedBy" json:"likedBy"`
 }
 
 // pageData is used in the HTML templates as the main page model. It is
@@ -72,7 +71,7 @@ var (
 	rdb     = redis.NewClient(&redis.Options{
 		Addr:     redisIP + ":6379",
 		Password: "",
-		DB:       0,
+		DB:       5,
 	})
 
 	// HTML templates. We use them like components and compile them
