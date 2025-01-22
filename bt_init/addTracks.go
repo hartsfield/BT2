@@ -14,7 +14,6 @@ import (
 	"os"
 	"os/exec"
 	"strings"
-	"time"
 
 	"github.com/go-redis/redis/v8"
 	"golang.org/x/net/html"
@@ -101,7 +100,6 @@ func saveToken(path string, token *oauth2.Token) {
 
 func main() {
 
-	rand.Seed(time.Now().UTC().UnixNano())
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
 
 	ctx := context.Background()
@@ -139,35 +137,35 @@ func main() {
 			if len(row) > 1 {
 				formatted := strings.Join(strings.Split(row[0].(string)+" "+row[1].(string), " "), "_")
 				if !checkExists(formatted) {
-					// var instrumental string
-					// if row[7].(string) == "true" {
-					// 	instrumental = "instrumental"
-					// }
-					// if row[2] == "single" {
-					// 	row[2] = ""
-					// }
-					// nodes, _ := getMarkup(makeLink(
-					// 	strings.Join(
-					// 		[]string{
-					// 			row[0].(string),
-					// 			row[1].(string),
-					// 			row[2].(string),
-					// 			instrumental,
-					// 		}, "+",
-					// 	)))
-					// var link string
-					// var art string
-					// for _, node := range nodes {
-					// 	link = findLink(node)
-					// }
-					// if len(link) > 3 {
-					// 	nodes, _ = getMarkup(link)
-					// 	for _, node := range nodes {
-					// 		art = parseArtLink(node)
-					// 	}
-					// }
-					// getArt(art, row[0].(string), row[1].(string))
-					// downloadLink(link, row, srv)
+					var instrumental string
+					if row[7].(string) == "true" {
+						instrumental = "instrumental"
+					}
+					if row[2] == "single" {
+						row[2] = ""
+					}
+					nodes, _ := getMarkup(makeLink(
+						strings.Join(
+							[]string{
+								row[0].(string),
+								row[1].(string),
+								row[2].(string),
+								instrumental,
+							}, "+",
+						)))
+					var link string
+					var art string
+					for _, node := range nodes {
+						link = findLink(node)
+					}
+					if len(link) > 3 {
+						nodes, _ = getMarkup(link)
+						for _, node := range nodes {
+							art = parseArtLink(node)
+						}
+					}
+					getArt(art, row[0].(string), row[1].(string))
+					downloadLink(link, row, srv)
 				}
 			}
 		}

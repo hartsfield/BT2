@@ -73,7 +73,7 @@ li {
         width: 100%;
         text-align: center;
         border-bottom: 1px solid #c4c4c4;
-        color: #ab5f0a;
+        color: #ac5304;
         font-weight: bold;
 }
 
@@ -202,7 +202,7 @@ li {
 .foot {
     margin-left: 11em;
     margin-top: 1.5em;
-    background: #c34646;
+    background: #ab5f0a;
     color: white;
     font-weight: bold;
     padding: 0.5em;
@@ -380,8 +380,7 @@ img {
                 padding-left: 1em;
                 padding-top: 0.58em;
                 cursor: pointer;
-
-                background: #b35454;
+                background: #ac5304;
                 border-right: 1px solid #d9d9d9;
                 padding-right: 1em;
                 height: 2.3em;
@@ -646,11 +645,13 @@ img {
 
 
 .globalTrackInfo {
+        
+    color: #9f7033;
+    font-weight: bold;
         /* margin-left: 11em; */
         /* margin-left: 100%; */
         /* font-family: 'Modak', cursive; */
         font-size: 1.2em;
-        color: black;
         height: 1.7em;
         padding-top: 0.3em;
         z-index: 9555;
