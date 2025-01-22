@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 */*credentials*
 *credentials*
 */*token*
@@ -14,3 +15,9 @@
 *logfile.txt*
 *logFile.txt*
 log.txt
+=======
+public/assets/track_data
+bt_init/token.json
+bt_init/credentials.json
+*dump*
+>>>>>>> refs/remotes/origin/master
