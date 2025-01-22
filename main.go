@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"html/template"
 	"log"
-	"math/rand"
 	"net/http"
 	"os"
 	"time"
@@ -87,8 +86,6 @@ var (
 )
 
 func main() {
-	// for generating IDs
-	rand.Seed(time.Now().UTC().UnixNano())
 
 	// Tells 'log' to log the line number
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
